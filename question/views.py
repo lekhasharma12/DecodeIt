@@ -38,7 +38,7 @@ def addanswer_view(request, question_id):
         instance.added_by = request.user
         instance.question = Question.objects.get(pk=question_id)
         instance.save()
-        return redirect('')
+        return redirect('home')
     else:
         question = Question.objects.get(pk=question_id)
         if question.added_by == request.user:

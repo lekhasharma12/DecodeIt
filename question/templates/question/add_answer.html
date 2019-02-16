@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Add an Answer|DecodeIt{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-sm-12 htab">
+      <p>
+      <a href="/../../../" style="color: #333333"><span class="glyphicon glyphicon-chevron-left" style="float: left;padding-left: 15px"></span></a>
+        ADD AN ANSWER
+      </p>
+    </div>
+</div>
+<div class="contain2">
+    <form class="ansform" method="post">
+        {% csrf_token %}
+        <p>{{ question.question_text }}</p>
+        <small>by {{question.added_by}}, on {{question.pub_date}}</small>
+        {% for field in form %}
+
+          <p>
+            {{ field }}
+          </p>
+        {% endfor %}
+        <button class="btn btn-default" type="submit">Add</button>
+     </form>
+  </div>
+{% endblock %}

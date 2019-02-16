@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}DecodeIt{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-sm-4 htab">
+            <a href="."><p>HOME</p></a>
+        </div>
+        <div class="col-sm-4 htab">
+            <a href="{% url 'add' %}"><p>ADD A QUESTION</p></a>
+        </div>
+        <div class="col-sm-4 htab">
+            <p>YOU</p>
+        </div>
+    </div>
+
+    <div class="list">
+        <div class="row" style="padding-top: 15px">
+            <ul>
+                {% for thing in things %}
+                    <li style="list-style: none">
+                        <div class="well">
+                            <p>{{ thing.question_text }}<br/>
+                            <small>by {{ thing.added_by }}, on {{thing.pub_date}}</small>
+                            </p>
+                            <div class="row">
+                                <button class="btn btn-default button_space"><a style="color: #333333;" href="question/answers/{{thing.id}}">View Answers</a></button>
+                                <button class="btn btn-default button_space"><a style="color: #333333;" href="question/add_answer/{{thing.id}}">Add an Answer</a></button>
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}

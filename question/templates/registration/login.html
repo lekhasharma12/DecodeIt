@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+<form class="signupform", style="height:280px!important; top:30%!important" method="post">
+  {% csrf_token %}
+  <p class="topic">LOG IN</p>
+  {% for field in form %}
+    <div class="row">
+        <div class="col-sm-6">
+          <p>{{ field.label_tag }}</p></div>
+        <div class="col-sm-6">
+          <p>{{ field }}</p>
+        </div>
+    </div>
+        {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}
+    {% endfor %}
+  <button class="btn btn-default" style="top:77%!important" type="submit">Login</button>
+</form>
+{% endblock %}

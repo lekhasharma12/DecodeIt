@@ -1,0 +1,15 @@
+<!doctype HTML>
+{% load staticfiles %}
+<head>
+    <title>{% block title %}DecodeIt{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href='{% static "question/css/style.css" %}'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+
+</head>
+<body>
+    {% include 'css.html' %}
+    {% include 'navbar.html' %}
+    {% block content %}
+    {% endblock %}
+</body>

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}Answers|DecodeIt{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-sm-12 htab">
+          <p>
+          <a href="/../../../" style="color: #333333"><span class="glyphicon glyphicon-chevron-left" style="float: left;padding-left: 15px"></span></a>
+            ANSWERS
+          </p>
+        </div>
+    </div>
+    <div class="question">
+        <p>{{ques.question_text}}</p>
+        <small>by {{ques.added_by}}, on {{ques.pub_date}}</small>
+    </div>
+    {% if answers %}
+        <div class="list">
+                <div class="row" style="padding-top: 15px">
+                    <ul>
+                        {% for answer in answers %}
+                            <li style="list-style: none">
+                                <div class="well">
+                                    <p>{{ answer.answer }}<br/>
+                                    <small>by {{ answer.added_by }}, on {{answer.pub_date}}</small>
+                                    </p>
+                                    <!---<div class="row">
+                                        <button class="btn btn-default button_space"><a style="color: #333333;" href="question/answers/{{thing.id}}">View Answers</a></button>
+                                        <button class="btn btn-default button_space"><a style="color: #333333;" href="question/add_answer/{{thing.id}}">Add an Answer</a></button>
+                                    </div>--->
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+    {% else %}
+        <div class="question">
+            <p>No answers yet!</p>
+        </div>
+    {% endif %}
+{% endblock %}
